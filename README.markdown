@@ -20,9 +20,9 @@ Usage has been simplified using a suggestion by 'KieranP'
 
 To make a class Act as List, simply do:
 
-<pre>
-  include ActsAsList::Mongoid   
-</pre>
+```ruby
+include ActsAsList::Mongoid   
+```
 
 And it will automatically set up a field and call acts_as_list with that field. By default the field name is :position.
 You can change the defaut position_column name used: <code>ActsAsList::Mongoid.default_position_column = :pos</code>.
@@ -30,7 +30,7 @@ For this class variable to be effetive, it should be set before calling <code>in
 
 ## Example
 
-<pre>
+```ruby
   require 'mongoid'
   require 'mongoid_embedded_helper'
 
@@ -63,20 +63,19 @@ For this class variable to be effetive, it should be set before calling <code>in
 
   todo_list.items.first.move(:bottom)
   todo_list.items.last.move(:higher)
-</pre>  
+```
 
 ## Overriding defaults
 
 By default, when including ActsAsList::Mongoid, the field is set to :pos and the acts_as_list column to :pos. 
 To change this:
 
-<pre>
+```ruby
   include ActsAsList::Mongoid   
   
   field :pos, :type => Integer
   acts_as_list :column => :pos
-</pre>
-
+```
 
 ### List initialization 
 
@@ -88,7 +87,7 @@ collection in order for the position of each list item to be set to an initial p
 
 ## New move API borrowed from Data Mapper *in-list* plugin
      
-<pre>
+```ruby
 item.move(:highest)          # moves to top of list.
 item.move(:lowest)           # moves to bottom of list.
 item.move(:top)              # moves to top of list.
@@ -98,7 +97,7 @@ item.move(:down)             # moves one up (:lower and :down is the same) withi
 item.move(:to => position)   # moves item to a specific position.
 item.move(:above => other)   # moves item above the other item.*
 item.move(:below => other)
-<pre>
+```
 
 ## Running the specs
 
